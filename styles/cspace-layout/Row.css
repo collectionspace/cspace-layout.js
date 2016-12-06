@@ -1,0 +1,11 @@
+.normal {
+  display: flex;
+}
+
+.normal > * {
+  flex: 1;
+}
+
+.normal > * + * {
+  margin-left: 10px;
+}
