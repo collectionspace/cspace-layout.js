@@ -3,7 +3,7 @@
 const webpack = require('webpack');
 const values = require('postcss-modules-values');
 
-const library = 'cspaceInput';
+const library = 'cspaceLayout';
 const env = process.env.NODE_ENV;
 const isProduction = env === 'production';
 const filename = `${library}${isProduction ? '.min' : ''}.js`;
