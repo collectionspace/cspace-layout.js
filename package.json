@@ -1,6 +1,6 @@
 {
   "name": "cspace-layout",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "CollectionSpace layout components",
   "author": "Ray Lee <rhlee@berkeley.edu>",
   "license": "ECL-2.0",
@@ -35,12 +35,14 @@
     "test-specs": "npm run test-browser-specs",
     "test-integration": "npm run test-browser-integration",
     "test-browser": "cross-env NODE_ENV=test karma start --singleRun=true",
-    "test-browser-specs": "cross-env NODE_ENV=test karma start --singleRun=true --dir=specs",
-    "test-browser-integration": "cross-env NODE_ENV=test karma start --singleRun=true --dir=integration"
+    "test-browser-specs": "cross-env NODE_ENV=test karma start --singleRun=true --dir=test/specs",
+    "test-browser-integration": "cross-env NODE_ENV=test karma start --singleRun=true --dir=test/integration"
   },
   "dependencies": {
     "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "react-addons-shallow-compare": "^15.4.1",
+    "react-dom": "^15.3.1",
+    "react-virtualized": "^8.7.1"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",

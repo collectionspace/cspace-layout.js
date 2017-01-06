@@ -1,9 +1,2 @@
-import Row from './components/Row';
-
-export {
-  Row,
-};
-
-export default {
-  Row,
-};
+export { default as Row } from './components/Row';
+export { default as Table } from './components/Table';

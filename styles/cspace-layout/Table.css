@@ -1,0 +1,18 @@
+.normal {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.normal :global(.ReactVirtualized__Table__Grid):focus {
+  outline: 1px dotted black;
+}
+
+.normal :global(.ReactVirtualized__Table__headerRow) {
+  background: rgb(240, 240, 240);
+  border: 1px solid rgb(220, 220, 220);
+  box-sizing: border-box;
+  text-transform: none;
+  font-size: 12px;
+  font-weight: inherit;
+}
