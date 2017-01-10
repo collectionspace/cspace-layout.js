@@ -29,6 +29,8 @@ const rowClassName = ({ index }) => {
   return null;
 };
 
+const cellRenderer = ({ cellData }) => cellData;
+
 export default class Table extends Component {
   constructor(props) {
     super(props);
@@ -68,8 +70,9 @@ export default class Table extends Component {
           >
             {columns.map(column => (
               <Column
-                {...column}
                 key={column.dataKey}
+                cellRenderer={cellRenderer}
+                {...column}
               />
             ))}
           </VirtualizedTable>

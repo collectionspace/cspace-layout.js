@@ -4,6 +4,10 @@
   font-weight: 400;
 }
 
+.common img {
+  height: calc(100% - 2px);
+}
+
 .common :global(.ReactVirtualized__Table__Grid) {
   background: rgb(250, 250, 250);
 }
