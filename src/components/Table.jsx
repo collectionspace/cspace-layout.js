@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { AutoSizer, Column, Table as VirtualizedTable } from 'react-virtualized';
+import { AutoSizer, Column, SortDirection, Table as VirtualizedTable } from 'react-virtualized';
 import styles from '../../styles/cspace-layout/Table.css';
 import rowStyles from '../../styles/cspace-layout/TableRow.css';
 /* eslint-disable import/imports-first, import/no-unresolved */
@@ -57,7 +57,7 @@ export default class Table extends Component {
         {({ height, width }) => (
           <VirtualizedTable
             {...remainingProps}
-            className={styles.normal}
+            className={styles.common}
             width={width}
             height={height}
             headerHeight={22}
@@ -68,11 +68,8 @@ export default class Table extends Component {
           >
             {columns.map(column => (
               <Column
-                cellDataGetter={column.cellDataGetter}
+                {...column}
                 key={column.dataKey}
-                label={column.label}
-                dataKey={column.dataKey}
-                width={column.width}
               />
             ))}
           </VirtualizedTable>
@@ -81,6 +78,9 @@ export default class Table extends Component {
     );
   }
 }
+
+Table.SORT_ASC = SortDirection.ASC;
+Table.SORT_DESC = SortDirection.DESC;
 
 Table.propTypes = propTypes;
 Table.defaultProps = defaultProps;
