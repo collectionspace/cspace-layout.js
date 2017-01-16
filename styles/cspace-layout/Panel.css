@@ -1,9 +1,10 @@
 .common {
   background-color: rgba(230, 230, 230, .4);
+  margin: 10px 0;
 }
 
-.common + .common {
-  margin-top: 6px;
+.common > div > .common:first-child {
+  margin-top: 0;
 }
 
 .common > header {
@@ -23,7 +24,7 @@
   margin: 0;
   border: none;
   padding: 10px 10px 10px 21px;
-  
+
   text-align: left;
   
   font-family: "Open Sans", sans-serif;
