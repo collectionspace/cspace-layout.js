@@ -8,8 +8,8 @@
 }
 
 .common > header {
-  background-repeat: no-repeat;
-  background-size: 20px auto;
+  position: relative;
+  display: flex;
 }
 
 .common > header > button {
@@ -19,7 +19,8 @@
 
   background: none;
   background-repeat: no-repeat;
-  background-position: right center;
+  background-position: 3px center;
+  background-size: auto 20px;
 
   margin: 0;
   border: none;
@@ -32,7 +33,8 @@
 }
 
 .common > header > button:focus {
-  outline: 2px solid black;
+  outline: 1px dotted black;
+  outline-offset: -1px;
 }
 
 .common > header > button:hover,
@@ -57,9 +59,8 @@
   composes: common;
 }
 
-.normal > header {
+.normal > header > button {
   background-image: url(../../images/expanded.svg);
-  background-position: 3px center;
 }
 
 .normal > header > button:hover,
@@ -69,12 +70,10 @@
 
 .collapsed {
   composes: common;
-  border-bottom: none;
 }
 
-.collapsed > header {
+.collapsed > header > button {
   background-image: url(../../images/collapsed.svg);
-  background-position: 3px center;
 }
 
 .collapsed > header > button:hover,

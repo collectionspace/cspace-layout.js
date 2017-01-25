@@ -1,0 +1,6 @@
+.common {
+  display: flex;
+  align-self: center;
+  position: absolute;
+  right: 10px;
+}

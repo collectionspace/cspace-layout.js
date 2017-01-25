@@ -47,6 +47,24 @@ describe('Panel', function suite() {
       .equal('This is some content');
   });
 
+  it('should render buttons when a header is present', function test() {
+    const buttons = [
+      <button key="button1">1</button>,
+      <button key="button2">2</button>,
+    ];
+
+    render(
+      <Panel header="header" buttons={buttons}>
+        <div id="content">This is some content</div>
+      </Panel>, this.container);
+
+    const buttonElements = this.container.querySelectorAll('.cspace-layout-PanelButtonBar--common button');
+
+    buttonElements.length.should.equal(2);
+    buttonElements[0].textContent.should.equal('1');
+    buttonElements[1].textContent.should.equal('2');
+  });
+
   it('should hide content when collapsible and collapsed', function test() {
     render(
       <Panel collapsible collapsed>

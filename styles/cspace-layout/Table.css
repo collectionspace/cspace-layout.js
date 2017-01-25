@@ -17,8 +17,9 @@
 }
 
 .common :global(.ReactVirtualized__Table__headerRow) {
-  background: rgb(240, 240, 240);
   border: 1px solid rgb(220, 220, 220);
+  border-width: 1px 0;
+  background: rgb(240, 240, 240);
   box-sizing: border-box;
   text-transform: none;
   font-size: 12px;
@@ -26,7 +27,7 @@
 }
 
 .common :global(.ReactVirtualized__Table__headerColumn) > span {
-  line-height: 20px;
+  line-height: 22px;
 }
 
 .common :global(.ReactVirtualized__Table__sortableHeaderColumn) > span {
@@ -35,11 +36,12 @@
 
 .common :global(.ReactVirtualized__Table__sortableHeaderColumn):focus {
   outline: 1px dotted black;
-  outline-offset: -1px;
+  outline-offset: -2px;
 }
 
 .common :global(.ReactVirtualized__Table__sortableHeaderIcon) {
   width: 16px;
   height: 16px;
-  margin: 2px 0;
+  margin: 3px 0 2px -3px;
+  position: absolute;
 }

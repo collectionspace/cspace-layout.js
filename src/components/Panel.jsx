@@ -1,8 +1,12 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 import styles from '../../styles/cspace-layout/Panel.css';
+import buttonBarStyles from '../../styles/cspace-layout/PanelButtonBar.css';
 
 const propTypes = {
+  buttons: PropTypes.arrayOf(PropTypes.node),
   children: PropTypes.node,
+  className: PropTypes.string,
   collapsible: React.PropTypes.bool,
   collapsed: React.PropTypes.bool,
   header: PropTypes.node,
@@ -37,6 +41,7 @@ export default class Panel extends Component {
 
   renderHeader() {
     const {
+      buttons,
       header,
     } = this.props;
 
@@ -44,11 +49,22 @@ export default class Panel extends Component {
       return null;
     }
 
+    let buttonBar = null;
+
+    if (buttons && buttons.length > 0) {
+      buttonBar = (
+        <div className={buttonBarStyles.common}>
+          {buttons}
+        </div>
+      );
+    }
+
     return (
       <header>
         <button type="button" onClick={this.handleHeaderClick}>
           {header}
         </button>
+        {buttonBar}
       </header>
     );
   }
@@ -76,14 +92,17 @@ export default class Panel extends Component {
     const body = this.renderBody();
 
     const {
+      className,
       collapsible,
       collapsed,
     } = this.props;
 
-    const className = (collapsible && collapsed) ? styles.collapsed : styles.normal;
+    const classes = classNames(
+      className, (collapsible && collapsed) ? styles.collapsed : styles.normal
+    );
 
     return (
-      <section className={className}>
+      <section className={classes}>
         {header}
         {body}
       </section>
