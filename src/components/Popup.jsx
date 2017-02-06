@@ -3,13 +3,19 @@ import styles from '../../styles/cspace-layout/Popup.css';
 
 const propTypes = {
   children: PropTypes.node,
+  tabIndex: PropTypes.string,
   onBlur: PropTypes.func,
   onKeyDown: PropTypes.func,
+  onMouseLeave: PropTypes.func,
 
   /**
    * Callback to be executed after the Popup has mounted.
    */
   onMount: PropTypes.func,
+};
+
+const defaultProps = {
+  tabIndex: '-1',
 };
 
 export default class Popup extends Component {
@@ -18,6 +24,7 @@ export default class Popup extends Component {
 
     this.handleBlur = this.handleBlur.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleRef = this.handleRef.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +34,12 @@ export default class Popup extends Component {
 
     if (onMount) {
       onMount();
+    }
+  }
+
+  focus() {
+    if (this.domNode) {
+      this.domNode.focus();
     }
   }
 
@@ -50,9 +63,15 @@ export default class Popup extends Component {
     }
   }
 
+  handleRef(ref) {
+    this.domNode = ref;
+  }
+
   render() {
     const {
       children,
+      tabIndex,
+      onMouseLeave,
     } = this.props;
 
     // TODO: ARIA
@@ -61,9 +80,11 @@ export default class Popup extends Component {
       /* eslint-disable jsx-a11y/no-static-element-interactions */
       <div
         className={styles.common}
-        tabIndex="-1"
+        ref={this.handleRef}
+        tabIndex={tabIndex}
         onBlur={this.handleBlur}
         onKeyDown={this.handleKeyDown}
+        onMouseLeave={onMouseLeave}
       >
         {children}
       </div>
@@ -73,3 +94,4 @@ export default class Popup extends Component {
 }
 
 Popup.propTypes = propTypes;
+Popup.defaultProps = defaultProps;

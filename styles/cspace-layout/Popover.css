@@ -1,0 +1,33 @@
+.common {
+  position: relative;
+  display: inline-block;
+}
+
+.common > button {
+  border: none;
+  font: inherit;
+  padding: 0 16px 0 0;
+  background: url(../../images/expand.svg) no-repeat right top;
+}
+
+.common > button:focus {
+  outline: 1px dotted black;
+}
+
+.open > button {
+  visibility: hidden;
+}
+
+.common > :global(.cspace-layout-Popup--common) {
+  top: -16px;
+  padding: 16px;
+  min-width: initial;
+}
+
+.left > :global(.cspace-layout-Popup--common) {
+  left: -16px;
+}
+
+.right > :global(.cspace-layout-Popup--common) {
+  right: 0;
+}
