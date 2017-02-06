@@ -204,7 +204,7 @@ describe('Popover', function suite() {
           const popup = this.container.querySelector('.cspace-layout-Popup--common');
           const rect = popup.getBoundingClientRect();
 
-          headerElement.getBoundingClientRect().right.should.be.closeTo(rect.right, 0.5);
+          headerElement.getBoundingClientRect().right.should.be.closeTo(rect.right, 2.0);
 
           resolve();
         }, 300);
