@@ -6,12 +6,18 @@
 .common > button {
   border: none;
   font: inherit;
+  margin: 0;
   padding: 0 16px 0 0;
   background: url(../../images/expand.svg) no-repeat right top;
 }
 
 .common > button:focus {
   outline: 1px dotted black;
+}
+
+.common > button::-moz-focus-inner {
+  padding: 0;
+  border: 0
 }
 
 .open > button {

@@ -1,6 +1,6 @@
 {
   "name": "cspace-layout",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "CollectionSpace layout components",
   "author": "Ray Lee <rhlee@berkeley.edu>",
   "license": "ECL-2.0",

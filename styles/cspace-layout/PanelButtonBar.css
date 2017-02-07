@@ -3,4 +3,5 @@
   align-self: center;
   position: absolute;
   right: 10px;
+  top: calc(50% - 10px);
 }
