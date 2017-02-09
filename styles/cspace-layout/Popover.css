@@ -6,6 +6,7 @@
 .common > button {
   border: none;
   font: inherit;
+  color: inherit;
   margin: 0;
   padding: 0 16px 0 0;
   background: url(../../images/expand.svg) no-repeat right top;
