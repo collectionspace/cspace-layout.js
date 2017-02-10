@@ -113,6 +113,7 @@ export default class Popover extends Component {
 
     return (
       <button
+        type="button"
         onClick={this.handleHeaderClick}
         onKeyDown={this.handleHeaderKeyDown}
         onMouseEnter={this.handleHeaderMouseEnter}
