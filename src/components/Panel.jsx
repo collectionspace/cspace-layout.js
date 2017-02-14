@@ -7,8 +7,9 @@ const propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.node),
   children: PropTypes.node,
   className: PropTypes.string,
-  collapsible: React.PropTypes.bool,
-  collapsed: React.PropTypes.bool,
+  collapsible: PropTypes.bool,
+  collapsed: PropTypes.bool,
+  color: PropTypes.string,
   header: PropTypes.node,
   name: PropTypes.string,
   onToggleCollapsed: PropTypes.func,
@@ -17,6 +18,7 @@ const propTypes = {
 const defaultProps = {
   collapsible: false,
   collapsed: false,
+  color: 'black',
 };
 
 export default class Panel extends Component {
@@ -95,10 +97,11 @@ export default class Panel extends Component {
       className,
       collapsible,
       collapsed,
+      color,
     } = this.props;
 
     const classes = classNames(
-      className, (collapsible && collapsed) ? styles.collapsed : styles.normal
+      className, styles.common, styles[color], (collapsible && collapsed) ? styles.collapsed : ''
     );
 
     return (

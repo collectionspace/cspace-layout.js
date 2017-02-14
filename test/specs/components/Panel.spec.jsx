@@ -10,7 +10,7 @@ const expect = chai.expect;
 
 chai.should();
 
-const expectedClassName = 'cspace-layout-Panel--normal cspace-layout-Panel--common';
+const expectedClassName = 'cspace-layout-Panel--common cspace-layout-Panel--black';
 
 describe('Panel', function suite() {
   beforeEach(function before() {

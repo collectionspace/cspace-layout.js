@@ -29,7 +29,6 @@
   text-align: left;
   
   font-family: "Open Sans", sans-serif;
-  color: #4D4D4D;
 }
 
 .common > header > button:focus {
@@ -55,28 +54,40 @@
   padding: 7px 10px 3px 10px;
 }
 
-.normal {
-  composes: common;
-}
-
-.normal > header > button {
+.black > header > button {
   background-image: url(../../images/expanded.svg);
+  color: #4D4D4D;
 }
 
-.normal > header > button:hover,
-.normal > header > button:focus{
+.black > header > button:hover,
+.black > header > button:focus {
   background-image: url(../../images/collapse.svg);
 }
 
-.collapsed {
-  composes: common;
-}
-
-.collapsed > header > button {
+.black.collapsed > header > button {
   background-image: url(../../images/collapsed.svg);
 }
 
-.collapsed > header > button:hover,
-.collapsed > header > button:focus{
+.black.collapsed > header > button:hover,
+.black.collapsed > header > button:focus {
   background-image: url(../../images/expand.svg);
+}
+
+.blue > header > button {
+  background-image: url(../../images/expandedBlue.svg);
+  color: #739CD2;
+}
+
+.blue > header > button:hover,
+.blue > header > button:focus {
+  background-image: url(../../images/collapseBlue.svg);
+}
+
+.blue.collapsed > header > button {
+  background-image: url(../../images/collapsedBlue.svg);
+}
+
+.blue.collapsed > header > button:hover,
+.blue.collapsed > header > button:focus {
+  background-image: url(../../images/expandBlue.svg);
 }
