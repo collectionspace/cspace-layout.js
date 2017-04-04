@@ -92,4 +92,52 @@ describe('Table', function suite() {
 
     rowClickedIndex.should.equal(1);
   });
+
+  it('should render a checkbox column when showCheckboxColumn is true', function test() {
+    render(
+      <div style={{ height: '140px' }}>
+        <Table
+          columns={columns}
+          rowCount={data.length}
+          rowGetter={({ index }) => data[index]}
+          showCheckboxColumn
+        />
+      </div>, this.container);
+
+    const headers = this.container.querySelectorAll('span.ReactVirtualized__Table__headerTruncatedText');
+
+    headers[0].textContent.should.equal('');
+    headers[1].textContent.should.equal(columns[0].label);
+    headers[2].textContent.should.equal(columns[1].label);
+    headers[3].textContent.should.equal(columns[2].label);
+  });
+
+  it('should call renderCheckbox to render checkboxes', function test() {
+    let renderCalledCount = 0;
+
+    const renderCheckbox = ({ rowIndex }) => { // eslint-disable-line react/prop-types
+      renderCalledCount += 1;
+
+      return <input name={rowIndex} type="checkbox" />;
+    };
+
+    render(
+      <div style={{ height: '140px' }}>
+        <Table
+          columns={columns}
+          rowCount={data.length}
+          rowGetter={({ index }) => data[index]}
+          showCheckboxColumn
+          renderCheckbox={renderCheckbox}
+        />
+      </div>, this.container);
+
+    const rows = this.container.querySelectorAll('div.cspace-layout-TableRow--common');
+
+    for (let i = 0; i < rows.length; i += 1) {
+      rows[i].querySelector(`input[type="checkbox"][name="${i}"]`).should.not.equal(null);
+    }
+
+    renderCalledCount.should.equal(3);
+  });
 });

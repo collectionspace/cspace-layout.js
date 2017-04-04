@@ -1,6 +1,6 @@
 {
   "name": "cspace-layout",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "CollectionSpace layout components",
   "author": "Ray Lee <rhlee@berkeley.edu>",
   "license": "ECL-2.0",
@@ -35,9 +35,11 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "cspace-input": ">=0.9.5 <0.10.0",
     "react": "^15.3.1",
     "react-addons-shallow-compare": "^15.4.1",
     "react-dom": "^15.3.1",
+    "react-modal": "^1.7.3",
     "react-virtualized": "^8.7.1"
   },
   "devDependencies": {

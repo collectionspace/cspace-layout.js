@@ -3,6 +3,10 @@
   margin: 10px 0;
 }
 
+.common + .common {
+  margin-top: 10px;
+}
+
 .common > div > .common:first-child {
   margin-top: 0;
 }

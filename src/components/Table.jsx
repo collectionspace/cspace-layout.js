@@ -14,6 +14,8 @@ const propTypes = {
       width: PropTypes.number,
     })
   ),
+  showCheckboxColumn: PropTypes.bool,
+  renderCheckbox: PropTypes.func,
   onRowClick: PropTypes.func,
 };
 
@@ -51,8 +53,23 @@ export default class Table extends Component {
   render() {
     const {
       columns,
+      renderCheckbox,
+      showCheckboxColumn,
       ...remainingProps
     } = this.props;
+
+    let checkboxColumn;
+
+    if (showCheckboxColumn) {
+      checkboxColumn = (
+        <Column
+          key="check"
+          dataKey="selected"
+          cellRenderer={renderCheckbox}
+          width={20}
+        />
+      );
+    }
 
     return (
       <AutoSizer>
@@ -68,6 +85,7 @@ export default class Table extends Component {
             tabIndex={null}
             onRowClick={this.handleRowClick}
           >
+            {checkboxColumn}
             {columns.map(column => (
               <Column
                 key={column.dataKey}
