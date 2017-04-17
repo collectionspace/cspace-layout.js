@@ -66,7 +66,7 @@ export default class Table extends Component {
           key="check"
           dataKey="selected"
           cellRenderer={renderCheckbox}
-          width={20}
+          width={32}
         />
       );
     }
