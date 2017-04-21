@@ -5,3 +5,13 @@
   right: 10px;
   top: calc(50% - 10px);
 }
+
+.common > a {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.common > a + a,
+.common > a + button {
+  margin-left: 6px;
+}
