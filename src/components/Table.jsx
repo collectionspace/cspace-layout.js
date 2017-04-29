@@ -65,8 +65,11 @@ export default class Table extends Component {
         <Column
           key="check"
           dataKey="selected"
+          disableSort
           cellRenderer={renderCheckbox}
-          width={32}
+          width={18}
+          flexGrow={0}
+          flexShrink={0}
         />
       );
     }
