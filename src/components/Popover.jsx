@@ -1,6 +1,7 @@
 /* global window */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Popup from './Popup';
 import styles from '../../styles/cspace-layout/Popover.css';

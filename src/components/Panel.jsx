@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from '../../styles/cspace-layout/Panel.css';
 import buttonBarStyles from '../../styles/cspace-layout/PanelButtonBar.css';

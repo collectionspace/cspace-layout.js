@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import BaseModal from 'react-modal';
 import Button from 'cspace-input/lib/components/Button';
 import MiniButton from 'cspace-input/lib/components/MiniButton';

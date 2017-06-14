@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { AutoSizer, Column, SortDirection, Table as VirtualizedTable } from 'react-virtualized';
 import styles from '../../styles/cspace-layout/Table.css';
 import rowStyles from '../../styles/cspace-layout/TableRow.css';
