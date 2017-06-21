@@ -23,7 +23,7 @@ export default class Column extends Component {
     } = this.props;
 
     const classes = classNames(
-      styles.normal, right ? styles.right : '', left ? styles.left: ''
+      styles.normal, right ? styles.right : '', left ? styles.left : ''
     );
 
     return (

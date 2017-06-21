@@ -57,6 +57,6 @@ describe('Column', function suite() {
       <Column>
         <b>This column should be pulled to the left by default</b>
       </Column>
-    , this.container);
+      , this.container);
   });
 });
