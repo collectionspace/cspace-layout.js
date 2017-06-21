@@ -36,6 +36,10 @@
   margin: 0 10px 0 0;
 }
 
+.common > header > div > h1 {
+  margin: 0;
+}
+
 .common > header > button {
   flex: 0 0 auto;
   outline: 1px solid rgb(220, 220, 220);
@@ -53,6 +57,6 @@
   text-align: right;
 }
 
-.common > footer button + button {
+.common > footer * + * {
   margin-left: 4px;
 }
