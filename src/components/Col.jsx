@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Column(props) {
+export default function Col(props) {
   const {
     children,
   } = props;
@@ -13,6 +13,6 @@ export default function Column(props) {
   );
 }
 
-Column.propTypes = {
+Col.propTypes = {
   children: PropTypes.node,
 };
