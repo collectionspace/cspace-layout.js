@@ -31,7 +31,7 @@
   padding: 10px 10px 10px 21px;
 
   text-align: left;
-  
+
   font-family: "Open Sans", sans-serif;
 }
 
@@ -94,4 +94,23 @@
 .blue.collapsed > header > button:hover,
 .blue.collapsed > header > button:focus {
   background-image: url(../../images/expandBlue.svg);
+}
+
+.purple > header > button {
+  background-image: url(../../images/expandedPurple.svg);
+  color: #78449A;
+}
+
+.purple > header > button:hover,
+.purple > header > button:focus {
+  background-image: url(../../images/collapsePurple.svg);
+}
+
+.purple.collapsed > header > button {
+  background-image: url(../../images/collapsedPurple.svg);
+}
+
+.purple.collapsed > header > button:hover,
+.purple.collapsed > header > button:focus {
+  background-image: url(../../images/expandPurple.svg);
 }
