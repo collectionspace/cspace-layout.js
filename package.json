@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "cspace-input": ">=0.9.7 <0.10.0",
+    "cspace-input": ">=0.12.5 <0.13.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
