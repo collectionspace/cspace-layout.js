@@ -1,14 +1,13 @@
 .common {
   background-color: rgba(230, 230, 230, .4);
-  margin: 10px 0;
 }
 
-.common + .common {
-  margin-top: 10px;
+.common:not(:last-child) {
+  margin-bottom: 10px;
 }
 
-.common > div > .common:first-child {
-  margin-top: 0;
+.common > div > .common:last-child {
+  margin-bottom: 7px;
 }
 
 .common > header {
