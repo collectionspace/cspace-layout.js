@@ -22,18 +22,21 @@
   color: #4D4D4D;
 }
 
+.common button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
 .common > header {
   flex: 0 0 auto;
-  display: flex;
-
+  position: relative;
   align-items: flex-start;
   border-bottom: 1px solid rgb(220, 220, 220);
   padding: 10px;
 }
 
 .common > header > div {
-  flex: 0 0 calc(100% - 30px);
-  margin: 0 10px 0 0;
+  margin: 0 24px 0 0;
 }
 
 .common > header > div > h1 {
@@ -41,8 +44,27 @@
 }
 
 .common > header > button {
-  flex: 0 0 auto;
-  outline: 1px solid rgb(220, 220, 220);
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  outline: none;
+  outline-offset: 1px;
+  border: none;
+  border-radius: 3px;
+  padding: 0;
+  line-height: 16px;
+  background: none;
+}
+
+.common > header > button:hover {
+  background: #4D4D4D;
+  color: white;
+}
+
+.common > header > button:focus {
+  outline: 1px dotted black;
 }
 
 .common > div {
@@ -59,4 +81,30 @@
 
 .common > footer * + * {
   margin-left: 4px;
+}
+
+.common > footer button {
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  border: 0;
+  border-radius: 3px;
+  padding: 6px 10px;
+  color: rgb(255, 255, 255);
+  background-color: #73AA4F;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.common > footer button:disabled {
+  background-color: rgb(220, 220, 220);
+}
+
+.common > footer button:hover:not(:disabled) {
+  background-color: #4A7F28;
+}
+
+.common > footer button:focus {
+  box-shadow: 0 0 0 2px #4A7F28;
 }

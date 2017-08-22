@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BaseModal from 'react-modal';
-import Button from 'cspace-input/lib/components/Button';
-import MiniButton from 'cspace-input/lib/components/MiniButton';
 import styles from '../../styles/cspace-layout/Modal.css';
 import overlayStyles from '../../styles/cspace-layout/Overlay.css';
 
@@ -19,13 +17,13 @@ const renderCloseButton = (config) => {
   }
 
   return (
-    <MiniButton
+    <button
       className={closeButtonClassName}
       name="close"
       onClick={onCloseButtonClick}
     >
       {closeButtonLabel}
-    </MiniButton>
+    </button>
   );
 };
 
@@ -80,14 +78,14 @@ const defaultProps = {
 
     if (showAcceptButton) {
       acceptButton = (
-        <Button
+        <button
           className={acceptButtonClassName}
           disabled={acceptButtonDisabled}
           name="accept"
           onClick={onAcceptButtonClick}
         >
           {acceptButtonLabel}
-        </Button>
+        </button>
       );
     }
 
@@ -95,14 +93,14 @@ const defaultProps = {
 
     if (showCancelButton) {
       cancelButton = (
-        <Button
+        <button
           className={cancelButtonClassName}
           disabled={cancelButtonDisabled}
           name="cancel"
           onClick={onCancelButtonClick}
         >
           {cancelButtonLabel}
-        </Button>
+        </button>
       );
     }
 

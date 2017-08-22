@@ -1,6 +1,6 @@
 {
   "name": "cspace-layout",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "CollectionSpace layout components",
   "author": "Ray Lee <rhlee@berkeley.edu>",
   "license": "ECL-2.0",
@@ -37,7 +37,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "cspace-input": ">=0.12.7 <0.13.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
@@ -72,7 +71,7 @@
     "karma-firefox-launcher": "^1.0.0",
     "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.1.0",
-    "karma-sauce-launcher": "^1.0.0",
+    "karma-sauce-launcher": "^1.2.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.4",
     "mocha": "^3.5.0",
