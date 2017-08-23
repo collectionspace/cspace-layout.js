@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BaseModal from 'react-modal';
+import classNames from 'classnames';
 import styles from '../../styles/cspace-layout/Modal.css';
+import footerButtonStyles from '../../styles/cspace-layout/ModalFooterButton.css';
+import headerButtonStyles from '../../styles/cspace-layout/ModalHeaderButton.css';
 import overlayStyles from '../../styles/cspace-layout/Overlay.css';
 
 const renderCloseButton = (config) => {
@@ -18,7 +21,7 @@ const renderCloseButton = (config) => {
 
   return (
     <button
-      className={closeButtonClassName}
+      className={classNames(closeButtonClassName, headerButtonStyles.common)}
       name="close"
       onClick={onCloseButtonClick}
     >
@@ -79,7 +82,7 @@ const defaultProps = {
     if (showAcceptButton) {
       acceptButton = (
         <button
-          className={acceptButtonClassName}
+          className={classNames(acceptButtonClassName, footerButtonStyles.common)}
           disabled={acceptButtonDisabled}
           name="accept"
           onClick={onAcceptButtonClick}
@@ -94,7 +97,7 @@ const defaultProps = {
     if (showCancelButton) {
       cancelButton = (
         <button
-          className={cancelButtonClassName}
+          className={classNames(cancelButtonClassName, footerButtonStyles.common)}
           disabled={cancelButtonDisabled}
           name="cancel"
           onClick={onCancelButtonClick}

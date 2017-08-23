@@ -1,0 +1,30 @@
+.common {
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  border: 0;
+  border-radius: 3px;
+  padding: 6px 10px;
+  color: rgb(255, 255, 255);
+  background-color: #73AA4F;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.common:disabled {
+  background-color: rgb(220, 220, 220);
+}
+
+.common:hover:not(:disabled) {
+  background-color: #4A7F28;
+}
+
+.common:focus {
+  box-shadow: 0 0 0 2px #4A7F28;
+}
+
+.common::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}

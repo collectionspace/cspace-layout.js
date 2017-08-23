@@ -1,0 +1,28 @@
+.common {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  outline: none;
+  outline-offset: 1px;
+  border: none;
+  border-radius: 3px;
+  padding: 0;
+  line-height: 16px;
+  background: none;
+}
+
+.common:hover {
+  background: #4D4D4D;
+  color: white;
+}
+
+.common:focus {
+  outline: 1px dotted black;
+}
+
+.common::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
