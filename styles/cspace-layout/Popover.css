@@ -10,6 +10,7 @@
   margin: 0;
   padding: 0 16px 0 0;
   background: url(../../images/expand.svg) no-repeat right top;
+  background-size: 17px;
 }
 
 .common > button:focus {

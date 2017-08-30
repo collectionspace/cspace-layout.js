@@ -17,6 +17,9 @@ const propTypes = {
   header: PropTypes.node,
   align: PropTypes.string,
   openDelay: PropTypes.number,
+  renderContent: PropTypes.func,
+  onBeforeOpen: PropTypes.func,
+  onBeforeClose: PropTypes.func,
 };
 
 const defaultProps = {
@@ -52,15 +55,33 @@ export default class Popover extends Component {
   close() {
     this.cancelOpen();
 
-    this.setState({
-      open: false,
-    });
+    if (this.state.open) {
+      const {
+        onBeforeClose,
+      } = this.props;
+
+      if (onBeforeClose) {
+        onBeforeClose();
+      }
+
+      this.setState({
+        open: false,
+      });
+    }
   }
 
   open() {
     this.cancelOpen();
 
     if (!this.state.open) {
+      const {
+        onBeforeOpen,
+      } = this.props;
+
+      if (onBeforeOpen) {
+        onBeforeOpen();
+      }
+
       this.setState({
         open: true,
       });
@@ -128,24 +149,29 @@ export default class Popover extends Component {
   renderPopup() {
     const {
       children,
+      renderContent,
     } = this.props;
 
     const {
       open,
     } = this.state;
 
-    if (open && children) {
-      return (
-        <Popup
-          ref={focus}
-          tabIndex="0"
-          onBlur={this.handlePopupBlur}
-          onKeyDown={this.handlePopupKeyDown}
-          onMouseLeave={this.handlePopupMouseLeave}
-        >
-          {children}
-        </Popup>
-      );
+    if (open) {
+      const content = renderContent ? renderContent() : children;
+
+      if (content) {
+        return (
+          <Popup
+            ref={focus}
+            tabIndex="0"
+            onBlur={this.handlePopupBlur}
+            onKeyDown={this.handlePopupKeyDown}
+            onMouseLeave={this.handlePopupMouseLeave}
+          >
+            {content}
+          </Popup>
+        );
+      }
     }
 
     return null;

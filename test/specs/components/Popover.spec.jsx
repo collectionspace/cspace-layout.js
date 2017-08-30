@@ -181,6 +181,78 @@ describe('Popover', function suite() {
     );
   });
 
+  it('should call onBeforeOpen before opening', function test() {
+    let handlerCalled = false;
+
+    const handleBeforeOpen = () => {
+      handlerCalled = true;
+    };
+
+    const header = <div>Header</div>;
+
+    render(
+      <div style={{ position: 'relative' }}>
+        <Popover header={header} onBeforeOpen={handleBeforeOpen} >
+          {header}
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
+        </Popover>
+        <br /><br />
+      </div>, this.container);
+
+    const headerElement = this.container.querySelector('button');
+
+    Simulate.click(headerElement);
+
+    handlerCalled.should.equal(true);
+  });
+
+  it('should call renderContent to render the popup content if it is supplied', function test() {
+    const renderContent = () => (
+      <div className="myContent">renderContent called</div>
+    );
+
+    const header = <div>Header</div>;
+
+    render(
+      <div style={{ position: 'relative' }}>
+        <Popover header={header} renderContent={renderContent} />
+        <br /><br />
+      </div>, this.container);
+
+    const headerElement = this.container.querySelector('button');
+
+    Simulate.click(headerElement);
+
+    return new Promise((resolve) => {
+      window.setTimeout(() => {
+        this.container.querySelector('div.myContent').textContent.should.equal('renderContent called');
+        resolve();
+      }, 500);
+    });
+  });
+
+  it('should not render a popup if neither children nor renderContent are supplied', function test() {
+    const header = <div>Header</div>;
+
+    render(
+      <div style={{ position: 'relative' }}>
+        <Popover header={header} />
+        <br /><br />
+      </div>, this.container);
+
+    const headerElement = this.container.querySelector('button');
+
+    Simulate.click(headerElement);
+
+    return new Promise((resolve) => {
+      window.setTimeout(() => {
+        expect(this.container.querySelector('.cspace-layout-Popup--common')).to.equal(null);
+        resolve();
+      }, 500);
+    });
+  });
+
   it('should show a right aligned popup if align prop is \'right\'', function test() {
     const header = <div style={{ textAlign: 'right' }}>Header</div>;
 
@@ -296,6 +368,42 @@ describe('Popover', function suite() {
         Simulate.mouseLeave(popup);
 
         expect(this.container.querySelector('.cspace-layout-Popup--common')).to.equal(null);
+
+        resolve();
+      }, 500);
+    });
+  });
+
+  it('should call onBeforeClose before closing', function test() {
+    let handlerCalled = false;
+
+    const handleBeforeClose = () => {
+      handlerCalled = true;
+    };
+
+    const header = <div>Header</div>;
+
+    render(
+      <div style={{ position: 'relative' }}>
+        <Popover header={header} onBeforeClose={handleBeforeClose}>
+          {header}
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
+        </Popover>
+        <br /><br />
+      </div>, this.container);
+
+    const headerElement = this.container.querySelector('button');
+
+    Simulate.click(headerElement);
+
+    return new Promise((resolve) => {
+      window.setTimeout(() => {
+        const popup = this.container.querySelector('.cspace-layout-Popup--common');
+
+        Simulate.keyDown(popup, { key: 'Escape' });
+
+        handlerCalled.should.equal(true);
 
         resolve();
       }, 500);
