@@ -86,7 +86,7 @@ export default class Table extends Component {
             headerHeight={22}
             rowHeight={22}
             rowClassName={rowClassName}
-            tabIndex={null}
+            tabIndex={-1}
             onRowClick={this.handleRowClick}
           >
             {checkboxColumn}
