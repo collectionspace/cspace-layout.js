@@ -15,7 +15,8 @@
   display: flex;
 }
 
-.common > header > button {
+.common > header > button,
+.common > header > div {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -27,11 +28,18 @@
 
   margin: 0;
   border: none;
-  padding: 10px 10px 10px 21px;
 
   text-align: left;
 
   font-family: "Open Sans", sans-serif;
+}
+
+.common > header > div {
+  padding: 10px;
+}
+
+.common > header > button {
+  padding: 10px 10px 10px 21px;
 }
 
 .common > header > button:focus {
@@ -44,7 +52,7 @@
   background-color: rgba(230, 230, 230, .3);
 }
 
-.common > header > button > h3 {
+.common > header h3 {
   margin: 0;
 
   font-size: 14px;

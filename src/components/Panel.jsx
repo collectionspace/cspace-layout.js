@@ -45,12 +45,17 @@ export default class Panel extends Component {
   renderHeader() {
     const {
       buttons,
+      collapsible,
       header,
     } = this.props;
 
     if (!header) {
       return null;
     }
+
+    const content = collapsible
+      ? <button type="button" onClick={this.handleHeaderClick}>{header}</button>
+      : <div>{header}</div>;
 
     let buttonBar = null;
 
@@ -64,9 +69,7 @@ export default class Panel extends Component {
 
     return (
       <header>
-        <button type="button" onClick={this.handleHeaderClick}>
-          {header}
-        </button>
+        {content}
         {buttonBar}
       </header>
     );

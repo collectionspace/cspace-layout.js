@@ -123,32 +123,17 @@ describe('Panel', function suite() {
     handlerCalledIsCollapsed.should.equal(true);
   });
 
-  it('should not call onToggleCollapsed if not collapsible', function test() {
-    const panelName = 'descPanel';
-
-    let handlerCalledName = null;
-    let handlerCalledIsCollapsed = null;
-
-    const handleToggleCollapsed = (name, isCollapsed) => {
-      handlerCalledName = name;
-      handlerCalledIsCollapsed = isCollapsed;
-    };
-
+  it('should not render a header button when not collapsible', function test() {
     render(
       <Panel
-        name={panelName}
         header="Header"
         collapsible={false}
-        onToggleCollapsed={handleToggleCollapsed}
       >
         <div id="content">This is some content</div>
       </Panel>, this.container);
 
     const headerButton = this.container.querySelector('header > button');
 
-    Simulate.click(headerButton);
-
-    expect(handlerCalledName).to.equal(null);
-    expect(handlerCalledIsCollapsed).to.equal(null);
+    expect(headerButton).to.equal(null);
   });
 });
