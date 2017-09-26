@@ -16,15 +16,10 @@
 }
 
 .common > header > button,
-.common > header > div {
+.common > header > div:first-child {
   display: block;
   box-sizing: border-box;
   width: 100%;
-
-  background: none;
-  background-repeat: no-repeat;
-  background-position: 3px center;
-  background-size: auto 20px;
 
   margin: 0;
   border: none;
@@ -34,12 +29,16 @@
   font-family: "Open Sans", sans-serif;
 }
 
-.common > header > div {
+.common > header > div:first-child {
   padding: 10px;
 }
 
 .common > header > button {
   padding: 10px 10px 10px 21px;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: 3px center;
+  background-size: auto 20px;
 }
 
 .common > header > button:focus {
