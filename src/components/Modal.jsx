@@ -161,6 +161,10 @@ export default function Modal(props) {
     onCancelButtonClick,
   });
 
+  const footer = buttonBar
+    ? <footer>{buttonBar}</footer>
+    : null;
+
   return (
     <BaseModal
       {...remainingProps}
@@ -177,9 +181,7 @@ export default function Modal(props) {
       <div>
         {children}
       </div>
-      <footer>
-        {buttonBar}
-      </footer>
+      {footer}
     </BaseModal>
   );
 }
