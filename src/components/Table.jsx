@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { AutoSizer, Column, SortDirection, Table as VirtualizedTable } from 'react-virtualized';
+import { AutoSizer, Column, defaultTableRowRenderer, SortDirection, Table as VirtualizedTable } from 'react-virtualized';
 import styles from '../../styles/cspace-layout/Table.css';
 import rowStyles from '../../styles/cspace-layout/TableRow.css';
 /* eslint-disable import/imports-first, import/no-unresolved */
@@ -104,8 +104,8 @@ export default class Table extends Component {
   }
 }
 
-Table.SORT_ASC = SortDirection.ASC;
-Table.SORT_DESC = SortDirection.DESC;
+Table.SortDirection = SortDirection;
+Table.defaultRowRenderer = defaultTableRowRenderer;
 
 Table.propTypes = propTypes;
 Table.defaultProps = defaultProps;
