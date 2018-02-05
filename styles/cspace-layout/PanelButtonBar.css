@@ -8,11 +8,13 @@
 
 .common > a {
   height: 20px;
+  background-color: white;
   font-size: 12px;
-  line-height: 20px;
+  line-height: 22px;
+  padding: 0 6px;
 }
 
 .common > a + a,
 .common > a + button {
-  margin-left: 6px;
+  margin-left: 2px;
 }

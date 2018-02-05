@@ -48,7 +48,8 @@
 
 .common > header > button:hover,
 .common > header > button:focus {
-  background-color: rgba(230, 230, 230, .3);
+  background-color: rgba(0, 0, 0, .66);
+  color: white;
 }
 
 .common > header h3 {
@@ -64,59 +65,49 @@
   padding: 7px 10px 3px 10px;
 }
 
+.common > header > button:hover,
+.common > header > button:focus {
+  background-image: url(../../images/collapseWhite.svg);
+}
+
+.common.collapsed > header > button:hover,
+.common.collapsed > header > button:focus {
+  background-image: url(../../images/expandWhite.svg);
+}
+
 .black > header > button {
   background-image: url(../../images/expanded.svg);
   color: #4D4D4D;
-}
-
-.black > header > button:hover,
-.black > header > button:focus {
-  background-image: url(../../images/collapse.svg);
 }
 
 .black.collapsed > header > button {
   background-image: url(../../images/collapsed.svg);
 }
 
-.black.collapsed > header > button:hover,
-.black.collapsed > header > button:focus {
-  background-image: url(../../images/expand.svg);
-}
-
 .blue > header > button {
   background-image: url(../../images/expandedBlue.svg);
-  color: #739CD2;
+  color: #305A8D;
 }
 
 .blue > header > button:hover,
 .blue > header > button:focus {
-  background-image: url(../../images/collapseBlue.svg);
+  background-color: #305A8D;
 }
 
 .blue.collapsed > header > button {
   background-image: url(../../images/collapsedBlue.svg);
 }
 
-.blue.collapsed > header > button:hover,
-.blue.collapsed > header > button:focus {
-  background-image: url(../../images/expandBlue.svg);
-}
-
 .purple > header > button {
   background-image: url(../../images/expandedPurple.svg);
-  color: #78449A;
+  color: #734592;
 }
 
 .purple > header > button:hover,
 .purple > header > button:focus {
-  background-image: url(../../images/collapsePurple.svg);
+  background-color: #734592;
 }
 
 .purple.collapsed > header > button {
   background-image: url(../../images/collapsedPurple.svg);
-}
-
-.purple.collapsed > header > button:hover,
-.purple.collapsed > header > button:focus {
-  background-image: url(../../images/expandPurple.svg);
 }
