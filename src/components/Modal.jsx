@@ -1,4 +1,6 @@
-import React from 'react';
+/* global window */
+
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BaseModal from 'react-modal';
 import classNames from 'classnames';
@@ -116,74 +118,145 @@ const defaultProps = {
   },
 };
 
-export default function Modal(props) {
-  const {
-    children,
-    className,
-    contentLabel,
-    isOpen,
-    title,
-    renderButtonBar,
-    acceptButtonClassName,
-    acceptButtonDisabled,
-    acceptButtonLabel,
-    cancelButtonClassName,
-    cancelButtonDisabled,
-    cancelButtonLabel,
-    closeButtonClassName,
-    closeButtonLabel,
-    showAcceptButton,
-    showCancelButton,
-    showCloseButton,
-    onAcceptButtonClick,
-    onCancelButtonClick,
-    onCloseButtonClick,
-    ...remainingProps
-  } = props;
+export default class Modal extends Component {
+  constructor() {
+    super();
 
-  const closeButton = renderCloseButton({
-    closeButtonClassName,
-    closeButtonLabel,
-    showCloseButton,
-    onCloseButtonClick,
-  });
+    this.handleAfterOpen = this.handleAfterOpen.bind(this);
+    this.handleBodyRef = this.handleBodyRef.bind(this);
+    this.handleFooterRef = this.handleFooterRef.bind(this);
+    this.handleHeaderRef = this.handleHeaderRef.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
 
-  const buttonBar = renderButtonBar({
-    acceptButtonClassName,
-    acceptButtonDisabled,
-    acceptButtonLabel,
-    cancelButtonClassName,
-    cancelButtonDisabled,
-    cancelButtonLabel,
-    showAcceptButton,
-    showCancelButton,
-    onAcceptButtonClick,
-    onCancelButtonClick,
-  });
+  handleAfterOpen() {
+    // Focus the first input in the body, the first button in the footer, or the first button in the
+    // header.
 
-  const footer = buttonBar
-    ? <footer>{buttonBar}</footer>
-    : null;
+    window.setTimeout(() => {
+      let element;
 
-  return (
-    <BaseModal
-      {...remainingProps}
-      contentLabel={contentLabel}
-      isOpen={isOpen}
-      className={styles.common}
-      overlayClassName={overlayStyles.common}
-      portalClassName={className}
-    >
-      <header>
-        <div>{title}</div>
-        {closeButton}
-      </header>
-      <div>
-        {children}
-      </div>
-      {footer}
-    </BaseModal>
-  );
+      if (this.bodyDomNode) {
+        element = this.bodyDomNode.querySelector('input:not(:disabled)');
+      }
+
+      if (!element && this.footerDomNode) {
+        element = this.footerDomNode.querySelector('button');
+      }
+
+      if (!element && this.headerDomNode) {
+        element = this.headerDomNode.querySelector('button');
+      }
+
+      if (element) {
+        element.focus();
+      }
+    }, 0);
+  }
+
+  handleBodyRef(ref) {
+    this.bodyDomNode = ref;
+  }
+
+  handleFooterRef(ref) {
+    this.footerDomNode = ref;
+  }
+
+  handleHeaderRef(ref) {
+    this.headerDomNode = ref;
+  }
+
+  handleKeyDown(event) {
+    if (event.key === 'Escape') {
+      // TODO: Make a different callback?
+
+      const {
+        onCloseButtonClick,
+      } = this.props;
+
+      if (onCloseButtonClick) {
+        onCloseButtonClick(event);
+      }
+    }
+  }
+
+  render() {
+    const {
+      children,
+      className,
+      contentLabel,
+      isOpen,
+      title,
+      renderButtonBar,
+      acceptButtonClassName,
+      acceptButtonDisabled,
+      acceptButtonLabel,
+      cancelButtonClassName,
+      cancelButtonDisabled,
+      cancelButtonLabel,
+      closeButtonClassName,
+      closeButtonLabel,
+      showAcceptButton,
+      showCancelButton,
+      showCloseButton,
+      onAcceptButtonClick,
+      onCancelButtonClick,
+      onCloseButtonClick,
+      ...remainingProps
+    } = this.props;
+
+    const closeButton = renderCloseButton({
+      closeButtonClassName,
+      closeButtonLabel,
+      showCloseButton,
+      onCloseButtonClick,
+    });
+
+    const buttonBar = renderButtonBar({
+      acceptButtonClassName,
+      acceptButtonDisabled,
+      acceptButtonLabel,
+      cancelButtonClassName,
+      cancelButtonDisabled,
+      cancelButtonLabel,
+      showAcceptButton,
+      showCancelButton,
+      onAcceptButtonClick,
+      onCancelButtonClick,
+    });
+
+    const footer = buttonBar
+      ? <footer ref={this.handleFooterRef}>{buttonBar}</footer>
+      : null;
+
+    /* eslint-disable jsx-a11y/no-static-element-interactions */
+    return (
+      <BaseModal
+        {...remainingProps}
+        contentLabel={contentLabel}
+        isOpen={isOpen}
+        className={styles.common}
+        overlayClassName={overlayStyles.common}
+        portalClassName={className}
+        onAfterOpen={this.handleAfterOpen}
+      >
+        <div
+          role="presentation"
+          onKeyDown={this.handleKeyDown}
+        >
+          <header ref={this.handleHeaderRef}>
+            <div>{title}</div>
+            {closeButton}
+          </header>
+          <div ref={this.handleBodyRef}>
+            {children}
+          </div>
+          {footer}
+        </div>
+      </BaseModal>
+    );
+    /* eslint-enable jsx-a11y/no-static-element-interactions */
+  }
 }
 
 Modal.propTypes = propTypes;
