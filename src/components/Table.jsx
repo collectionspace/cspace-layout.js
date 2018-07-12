@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { AutoSizer, Column, defaultTableRowRenderer, SortDirection, Table as VirtualizedTable } from 'react-virtualized';
+import dimensions from '../../styles/dimensions.css';
 import styles from '../../styles/cspace-layout/Table.css';
 import rowStyles from '../../styles/cspace-layout/TableRow.css';
 /* eslint-disable import/imports-first, import/no-unresolved */
@@ -75,6 +76,8 @@ export default class Table extends Component {
       );
     }
 
+    const inputHeight = parseInt(dimensions.inputHeight, 10);
+
     return (
       <AutoSizer>
         {({ height, width }) => (
@@ -83,8 +86,8 @@ export default class Table extends Component {
             className={styles.common}
             width={width}
             height={height}
-            headerHeight={22}
-            rowHeight={22}
+            headerHeight={inputHeight}
+            rowHeight={inputHeight}
             rowClassName={rowClassName}
             tabIndex={-1}
             onRowClick={this.handleRowClick}

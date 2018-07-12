@@ -1,5 +1,9 @@
+
+@value inputHeight from '../dimensions.css';
+
 .common {
   background-color: rgba(230, 230, 230, .4);
+  border: 1px solid rgba(64, 64, 64, .1);
 }
 
 .common:not(:last-child) {
@@ -41,15 +45,12 @@
   background-size: auto 20px;
 }
 
-.common > header > button:focus {
-  outline: 1px dotted black;
-  outline-offset: -1px;
-}
-
 .common > header > button:hover,
 .common > header > button:focus {
   background-color: rgba(0, 0, 0, .66);
   color: white;
+  outline: 1px solid rgba(0, 0, 0, .66);
+  outline-offset: 0;
 }
 
 .common > header h3 {
