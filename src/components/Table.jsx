@@ -69,7 +69,7 @@ export default class Table extends Component {
           dataKey="selected"
           disableSort
           cellRenderer={renderCheckbox}
-          width={18}
+          width={19}
           flexGrow={0}
           flexShrink={0}
         />
