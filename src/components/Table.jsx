@@ -60,6 +60,8 @@ export default class Table extends Component {
       ...remainingProps
     } = this.props;
 
+    const inputHeight = parseInt(dimensions.inputHeight, 10);
+
     let checkboxColumn;
 
     if (showCheckboxColumn) {
@@ -69,14 +71,12 @@ export default class Table extends Component {
           dataKey="selected"
           disableSort
           cellRenderer={renderCheckbox}
-          width={19}
+          width={inputHeight - 3}
           flexGrow={0}
           flexShrink={0}
         />
       );
     }
-
-    const inputHeight = parseInt(dimensions.inputHeight, 10);
 
     return (
       <AutoSizer>
