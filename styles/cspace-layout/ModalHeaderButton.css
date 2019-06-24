@@ -13,7 +13,7 @@
   background: none;
 }
 
-.common:hover {
+.common:enabled:hover {
   background: #4D4D4D;
   color: white;
 }

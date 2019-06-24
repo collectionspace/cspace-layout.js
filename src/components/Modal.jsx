@@ -12,6 +12,7 @@ import overlayStyles from '../../styles/cspace-layout/Overlay.css';
 const renderCloseButton = (config) => {
   const {
     closeButtonClassName,
+    closeButtonDisabled,
     closeButtonLabel,
     showCloseButton,
     onCloseButtonClick,
@@ -24,6 +25,7 @@ const renderCloseButton = (config) => {
   return (
     <button
       className={classNames(closeButtonClassName, headerButtonStyles.common)}
+      disabled={closeButtonDisabled}
       name="close"
       onClick={onCloseButtonClick}
     >
@@ -45,6 +47,7 @@ const propTypes = {
   cancelButtonDisabled: PropTypes.bool,
   cancelButtonLabel: PropTypes.string,
   closeButtonClassName: PropTypes.string,
+  closeButtonDisabled: PropTypes.bool,
   closeButtonLabel: PropTypes.string,
   showAcceptButton: PropTypes.bool,
   showCancelButton: PropTypes.bool,
@@ -171,10 +174,11 @@ export default class Modal extends Component {
       // TODO: Make a different callback?
 
       const {
+        closeButtonDisabled,
         onCloseButtonClick,
       } = this.props;
 
-      if (onCloseButtonClick) {
+      if (!closeButtonDisabled && onCloseButtonClick) {
         onCloseButtonClick(event);
       }
     }
@@ -195,6 +199,7 @@ export default class Modal extends Component {
       cancelButtonDisabled,
       cancelButtonLabel,
       closeButtonClassName,
+      closeButtonDisabled,
       closeButtonLabel,
       showAcceptButton,
       showCancelButton,
@@ -207,6 +212,7 @@ export default class Modal extends Component {
 
     const closeButton = renderCloseButton({
       closeButtonClassName,
+      closeButtonDisabled,
       closeButtonLabel,
       showCloseButton,
       onCloseButtonClick,
