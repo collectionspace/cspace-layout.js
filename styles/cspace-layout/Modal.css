@@ -54,6 +54,6 @@
   text-align: right;
 }
 
-.common > div > footer * + * {
+.common > div > footer > div > * + * {
   margin-left: 4px;
 }
