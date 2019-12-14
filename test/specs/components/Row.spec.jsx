@@ -9,7 +9,7 @@ chai.should();
 
 const expectedClassName = 'cspace-layout-Row--normal';
 
-describe('Row', function suite() {
+describe('Row', () => {
   beforeEach(function before() {
     this.container = createTestContainer(this);
   });
@@ -30,7 +30,8 @@ describe('Row', function suite() {
     render(
       <Row>
         <div id="content">This is some content</div>
-      </Row>, this.container);
+      </Row>, this.container,
+    );
 
     this.container.querySelector('div > div#content').textContent.should
       .equal('This is some content');

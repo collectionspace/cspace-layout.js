@@ -6,13 +6,13 @@ import createTestContainer from '../../helpers/createTestContainer';
 
 import Panel from '../../../src/components/Panel';
 
-const expect = chai.expect;
+const { expect } = chai;
 
 chai.should();
 
 const expectedClassName = 'cspace-layout-Panel--common cspace-layout-Panel--black';
 
-describe('Panel', function suite() {
+describe('Panel', () => {
   beforeEach(function before() {
     this.container = createTestContainer(this);
   });
@@ -41,7 +41,8 @@ describe('Panel', function suite() {
     render(
       <Panel>
         <div id="content">This is some content</div>
-      </Panel>, this.container);
+      </Panel>, this.container,
+    );
 
     this.container.querySelector('div > div#content').textContent.should
       .equal('This is some content');
@@ -49,14 +50,15 @@ describe('Panel', function suite() {
 
   it('should render buttons when a header is present', function test() {
     const buttons = [
-      <button key="button1">1</button>,
-      <button key="button2">2</button>,
+      <button key="button1" type="button">1</button>,
+      <button key="button2" type="button">2</button>,
     ];
 
     render(
       <Panel header="header" buttons={buttons}>
         <div id="content">This is some content</div>
-      </Panel>, this.container);
+      </Panel>, this.container,
+    );
 
     const buttonElements = this.container.querySelectorAll('.cspace-layout-PanelButtonBar--common button');
 
@@ -69,7 +71,8 @@ describe('Panel', function suite() {
     render(
       <Panel collapsible collapsed>
         <div id="content">This is some content</div>
-      </Panel>, this.container);
+      </Panel>, this.container,
+    );
 
     expect(this.container.querySelector('div > div#content')).to.equal(null);
   });
@@ -78,7 +81,8 @@ describe('Panel', function suite() {
     render(
       <Panel collapsed>
         <div id="content">This is some content</div>
-      </Panel>, this.container);
+      </Panel>, this.container,
+    );
 
     this.container.querySelector('div > div#content').textContent.should
       .equal('This is some content');
@@ -88,7 +92,8 @@ describe('Panel', function suite() {
     render(
       <Panel collapsible>
         <div id="content">This is some content</div>
-      </Panel>, this.container);
+      </Panel>, this.container,
+    );
 
     this.container.querySelector('div > div#content').textContent.should
       .equal('This is some content');
@@ -113,7 +118,8 @@ describe('Panel', function suite() {
         onToggleCollapsed={handleToggleCollapsed}
       >
         <div id="content">This is some content</div>
-      </Panel>, this.container);
+      </Panel>, this.container,
+    );
 
     const headerButton = this.container.querySelector('header > button');
 
@@ -130,7 +136,8 @@ describe('Panel', function suite() {
         collapsible={false}
       >
         <div id="content">This is some content</div>
-      </Panel>, this.container);
+      </Panel>, this.container,
+    );
 
     const headerButton = this.container.querySelector('header > button');
 

@@ -10,7 +10,7 @@ chai.should();
 
 const expectedClassName = 'cspace-layout-Popup--common';
 
-describe('Popup', function suite() {
+describe('Popup', () => {
   beforeEach(function before() {
     this.container = createTestContainer(this);
   });
@@ -33,8 +33,10 @@ describe('Popup', function suite() {
         <Popup>
           <span>Hello</span>
         </Popup>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     this.container.querySelector('span').textContent.should.equal('Hello');
   });
@@ -51,8 +53,10 @@ describe('Popup', function suite() {
         <Popup onBlur={handleBlur}>
           <span>Hello</span>
         </Popup>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const element = this.container.querySelector(`div.${expectedClassName}`);
 
@@ -67,8 +71,10 @@ describe('Popup', function suite() {
         <Popup>
           <span>Hello</span>
         </Popup>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const element = this.container.querySelector(`div.${expectedClassName}`);
 
@@ -87,8 +93,10 @@ describe('Popup', function suite() {
         <Popup onKeyDown={handleKeyDown}>
           <span>Hello</span>
         </Popup>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const element = this.container.querySelector(`div.${expectedClassName}`);
 
@@ -103,8 +111,10 @@ describe('Popup', function suite() {
         <Popup>
           <span>Hello</span>
         </Popup>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const element = this.container.querySelector(`div.${expectedClassName}`);
 
@@ -123,8 +133,10 @@ describe('Popup', function suite() {
         <Popup onMount={handleMount}>
           <span>Hello</span>
         </Popup>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     handlerCalled.should.equal(true);
   });
@@ -137,8 +149,10 @@ describe('Popup', function suite() {
         <Popup>
           <span>Hi</span>
         </Popup>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const element = this.container.querySelector(`div.${expectedClassName}`);
 
@@ -156,8 +170,10 @@ describe('Popup', function suite() {
             should expand to fit.
           </span>
         </Popup>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const element = this.container.querySelector(`div.${expectedClassName}`);
 

@@ -8,7 +8,7 @@ import Table from '../../../src/components/Table';
 
 chai.should();
 
-describe('Table', function suite() {
+describe('Table', () => {
   const columns = [
     {
       label: 'Identification number',
@@ -60,7 +60,8 @@ describe('Table', function suite() {
           rowCount={data.length}
           rowGetter={({ index }) => data[index]}
         />
-      </div>, this.container);
+      </div>, this.container,
+    );
 
     const headers = this.container.querySelectorAll('span.ReactVirtualized__Table__headerTruncatedText');
 
@@ -84,7 +85,8 @@ describe('Table', function suite() {
           rowGetter={({ index }) => data[index]}
           onRowClick={handleRowClick}
         />
-      </div>, this.container);
+      </div>, this.container,
+    );
 
     const rows = this.container.querySelectorAll('div.cspace-layout-TableRow--common');
 
@@ -102,7 +104,8 @@ describe('Table', function suite() {
           rowGetter={({ index }) => data[index]}
           showCheckboxColumn
         />
-      </div>, this.container);
+      </div>, this.container,
+    );
 
     const headers = this.container.querySelectorAll('span.ReactVirtualized__Table__headerTruncatedText');
 
@@ -130,7 +133,8 @@ describe('Table', function suite() {
           showCheckboxColumn
           renderCheckbox={renderCheckbox}
         />
-      </div>, this.container);
+      </div>, this.container,
+    );
 
     const rows = this.container.querySelectorAll('div.cspace-layout-TableRow--common');
 

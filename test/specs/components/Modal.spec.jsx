@@ -6,11 +6,11 @@ import { render } from 'react-dom';
 import createTestContainer from '../../helpers/createTestContainer';
 import Modal from '../../../src/components/Modal';
 
-const expect = chai.expect;
+const { expect } = chai;
 
 chai.should();
 
-describe('Modal', function suite() {
+describe('Modal', () => {
   before(() => {
     Modal.setAppElement(document.body);
   });
@@ -30,7 +30,8 @@ describe('Modal', function suite() {
         parentSelector={() => this.container}
       >
         {content}
-      </Modal>, this.container);
+      </Modal>, this.container,
+    );
 
     this.container.querySelector('.ReactModal__Content > div > header > div').textContent.should
       .equal(title);
@@ -50,7 +51,8 @@ describe('Modal', function suite() {
         parentSelector={() => this.container}
       >
         {content}
-      </Modal>, this.container);
+      </Modal>, this.container,
+    );
 
     this.container.querySelector('.ReactModal__Content > div > header button[name=close]').should
       .not.equal(null);
@@ -74,7 +76,8 @@ describe('Modal', function suite() {
         showCloseButton={false}
       >
         {content}
-      </Modal>, this.container);
+      </Modal>, this.container,
+    );
 
     expect(this.container.querySelector('.ReactModal__Content > div > header button[name=close]')).to
       .equal(null);
@@ -92,7 +95,8 @@ describe('Modal', function suite() {
         showCancelButton={false}
       >
         {content}
-      </Modal>, this.container);
+      </Modal>, this.container,
+    );
 
     expect(this.container.querySelector('.ReactModal__Content > div > footer button[name=cancel]')).to
       .equal(null);
@@ -110,7 +114,8 @@ describe('Modal', function suite() {
         showAcceptButton={false}
       >
         {content}
-      </Modal>, this.container);
+      </Modal>, this.container,
+    );
 
     expect(this.container.querySelector('.ReactModal__Content > div > footer button[name=accept]')).to
       .equal(null);
@@ -127,7 +132,8 @@ describe('Modal', function suite() {
         parentSelector={() => this.container}
       >
         {content}
-      </Modal>, this.container);
+      </Modal>, this.container,
+    );
 
     const cancelButton = this.container.querySelector('.ReactModal__Content > div > footer button[name=cancel]');
 
@@ -153,7 +159,8 @@ describe('Modal', function suite() {
         showCancelButton={false}
       >
         {content}
-      </Modal>, this.container);
+      </Modal>, this.container,
+    );
 
     const closeButton = this.container.querySelector('.ReactModal__Content > div > header button[name=close]');
 
@@ -184,7 +191,8 @@ describe('Modal', function suite() {
         onCloseButtonClick={handleCloseButtonClick}
       >
         {content}
-      </Modal>, this.container);
+      </Modal>, this.container,
+    );
 
     const modalContentContainer = this.container.querySelector('.ReactModal__Content > div');
 

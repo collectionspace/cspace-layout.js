@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const propTypes = {
+  children: PropTypes.node,
+};
+
+const defaultProps = {
+  children: undefined,
+};
+
 export default function Col(props) {
   const {
     children,
@@ -13,6 +21,5 @@ export default function Col(props) {
   );
 }
 
-Col.propTypes = {
-  children: PropTypes.node,
-};
+Col.propTypes = propTypes;
+Col.defaultProps = defaultProps;

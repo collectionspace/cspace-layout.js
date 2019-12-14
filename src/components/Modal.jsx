@@ -9,7 +9,61 @@ import footerButtonStyles from '../../styles/cspace-layout/ModalFooterButton.css
 import headerButtonStyles from '../../styles/cspace-layout/ModalHeaderButton.css';
 import overlayStyles from '../../styles/cspace-layout/Overlay.css';
 
-const renderCloseButton = (config) => {
+const defaultRenderButtonBar = (config) => {
+  const {
+    acceptButtonClassName,
+    acceptButtonDisabled,
+    acceptButtonLabel,
+    cancelButtonClassName,
+    cancelButtonDisabled,
+    cancelButtonLabel,
+    showAcceptButton,
+    showCancelButton,
+    onAcceptButtonClick,
+    onCancelButtonClick,
+  } = config;
+
+  let acceptButton;
+
+  if (showAcceptButton) {
+    acceptButton = (
+      <button
+        className={classNames(acceptButtonClassName, footerButtonStyles.common)}
+        disabled={acceptButtonDisabled}
+        name="accept"
+        type="button"
+        onClick={onAcceptButtonClick}
+      >
+        {acceptButtonLabel}
+      </button>
+    );
+  }
+
+  let cancelButton;
+
+  if (showCancelButton) {
+    cancelButton = (
+      <button
+        className={classNames(cancelButtonClassName, footerButtonStyles.common)}
+        disabled={cancelButtonDisabled}
+        name="cancel"
+        type="button"
+        onClick={onCancelButtonClick}
+      >
+        {cancelButtonLabel}
+      </button>
+    );
+  }
+
+  return (
+    <div>
+      {cancelButton}
+      {acceptButton}
+    </div>
+  );
+};
+
+const defaultRenderCloseButton = (config) => {
   const {
     closeButtonClassName,
     closeButtonDisabled,
@@ -27,6 +81,7 @@ const renderCloseButton = (config) => {
       className={classNames(closeButtonClassName, headerButtonStyles.common)}
       disabled={closeButtonDisabled}
       name="close"
+      type="button"
       onClick={onCloseButtonClick}
     >
       {closeButtonLabel}
@@ -60,65 +115,28 @@ const propTypes = {
 };
 
 const defaultProps = {
-  renderCloseButton,
+  children: undefined,
+  className: undefined,
   contentLabel: 'Modal',
+  isOpen: undefined,
+  title: undefined,
+  acceptButtonClassName: undefined,
+  acceptButtonDisabled: undefined,
   acceptButtonLabel: 'OK',
+  cancelButtonClassName: undefined,
+  cancelButtonDisabled: undefined,
   cancelButtonLabel: 'Cancel',
+  closeButtonClassName: undefined,
+  closeButtonDisabled: undefined,
   closeButtonLabel: '×',
   showAcceptButton: true,
   showCancelButton: true,
   showCloseButton: true,
-  renderButtonBar: (config) => {
-    const {
-      acceptButtonClassName,
-      acceptButtonDisabled,
-      acceptButtonLabel,
-      cancelButtonClassName,
-      cancelButtonDisabled,
-      cancelButtonLabel,
-      showAcceptButton,
-      showCancelButton,
-      onAcceptButtonClick,
-      onCancelButtonClick,
-    } = config;
-
-    let acceptButton;
-
-    if (showAcceptButton) {
-      acceptButton = (
-        <button
-          className={classNames(acceptButtonClassName, footerButtonStyles.common)}
-          disabled={acceptButtonDisabled}
-          name="accept"
-          onClick={onAcceptButtonClick}
-        >
-          {acceptButtonLabel}
-        </button>
-      );
-    }
-
-    let cancelButton;
-
-    if (showCancelButton) {
-      cancelButton = (
-        <button
-          className={classNames(cancelButtonClassName, footerButtonStyles.common)}
-          disabled={cancelButtonDisabled}
-          name="cancel"
-          onClick={onCancelButtonClick}
-        >
-          {cancelButtonLabel}
-        </button>
-      );
-    }
-
-    return (
-      <div>
-        {cancelButton}
-        {acceptButton}
-      </div>
-    );
-  },
+  renderButtonBar: defaultRenderButtonBar,
+  renderCloseButton: defaultRenderCloseButton,
+  onAcceptButtonClick: undefined,
+  onCancelButtonClick: undefined,
+  onCloseButtonClick: undefined,
 };
 
 export default class Modal extends Component {
@@ -192,6 +210,7 @@ export default class Modal extends Component {
       isOpen,
       title,
       renderButtonBar,
+      renderCloseButton,
       acceptButtonClassName,
       acceptButtonDisabled,
       acceptButtonLabel,
@@ -235,9 +254,9 @@ export default class Modal extends Component {
       ? <footer ref={this.handleFooterRef}>{buttonBar}</footer>
       : null;
 
-    /* eslint-disable jsx-a11y/no-static-element-interactions */
     return (
       <BaseModal
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...remainingProps}
         contentLabel={contentLabel}
         isOpen={isOpen}
@@ -261,11 +280,10 @@ export default class Modal extends Component {
         </div>
       </BaseModal>
     );
-    /* eslint-enable jsx-a11y/no-static-element-interactions */
   }
 }
 
 Modal.propTypes = propTypes;
 Modal.defaultProps = defaultProps;
 
-Modal.setAppElement = element => BaseModal.setAppElement(element);
+Modal.setAppElement = (element) => BaseModal.setAppElement(element);

@@ -8,13 +8,13 @@ import createTestContainer from '../../helpers/createTestContainer';
 
 import Popover from '../../../src/components/Popover';
 
-const expect = chai.expect;
+const { expect } = chai;
 
 chai.should();
 
 const expectedClassName = 'cspace-layout-Popover--common cspace-layout-Popover--left';
 
-describe('Popover', function suite() {
+describe('Popover', () => {
   beforeEach(function before() {
     this.container = createTestContainer(this);
   });
@@ -37,7 +37,8 @@ describe('Popover', function suite() {
     render(
       <div style={{ position: 'relative' }}>
         <Popover header={header} />
-      </div>, this.container);
+      </div>, this.container,
+    );
 
     this.container.querySelector('button').textContent.should.equal('Header');
   });
@@ -49,11 +50,14 @@ describe('Popover', function suite() {
       <div style={{ position: 'relative' }}>
         <Popover header={header}>
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -74,11 +78,14 @@ describe('Popover', function suite() {
       <div style={{ position: 'relative' }}>
         <Popover header={header}>
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -99,11 +106,14 @@ describe('Popover', function suite() {
       <div style={{ position: 'relative' }}>
         <Popover header={header}>
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -124,11 +134,14 @@ describe('Popover', function suite() {
       <div style={{ position: 'relative' }}>
         <Popover header={header} openDelay={500}>
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -155,11 +168,14 @@ describe('Popover', function suite() {
       <div style={{ position: 'relative' }}>
         <Popover header={header} openDelay={500}>
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -192,13 +208,16 @@ describe('Popover', function suite() {
 
     render(
       <div style={{ position: 'relative' }}>
-        <Popover header={header} onBeforeOpen={handleBeforeOpen} >
+        <Popover header={header} onBeforeOpen={handleBeforeOpen}>
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -217,8 +236,10 @@ describe('Popover', function suite() {
     render(
       <div style={{ position: 'relative' }}>
         <Popover header={header} renderContent={renderContent} />
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -238,8 +259,10 @@ describe('Popover', function suite() {
     render(
       <div style={{ position: 'relative' }}>
         <Popover header={header} />
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -260,11 +283,14 @@ describe('Popover', function suite() {
       <div style={{ position: 'relative', left: '400px' }}>
         <Popover header={header} align="right">
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -291,11 +317,14 @@ describe('Popover', function suite() {
       <div style={{ position: 'relative' }}>
         <Popover header={header}>
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -321,11 +350,14 @@ describe('Popover', function suite() {
       <div style={{ position: 'relative' }}>
         <Popover header={header}>
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -351,11 +383,14 @@ describe('Popover', function suite() {
       <div style={{ position: 'relative' }}>
         <Popover header={header}>
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 
@@ -387,11 +422,14 @@ describe('Popover', function suite() {
       <div style={{ position: 'relative' }}>
         <Popover header={header} onBeforeClose={handleBeforeClose}>
           {header}
-          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span><br />
+          <span style={{ whiteSpace: 'nowrap' }}>Lorem ipsum dolor sit amet,</span>
+          <br />
           <span style={{ whiteSpace: 'nowrap' }}>consectetur adipiscing elit.</span>
         </Popover>
-        <br /><br />
-      </div>, this.container);
+        <br />
+        <br />
+      </div>, this.container,
+    );
 
     const headerElement = this.container.querySelector('button');
 

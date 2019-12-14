@@ -23,8 +23,13 @@ const propTypes = {
 };
 
 const defaultProps = {
+  children: undefined,
+  header: undefined,
   align: 'left',
   openDelay: 250,
+  renderContent: undefined,
+  onBeforeOpen: undefined,
+  onBeforeClose: undefined,
 };
 
 export default class Popover extends Component {
@@ -55,7 +60,11 @@ export default class Popover extends Component {
   close() {
     this.cancelOpen();
 
-    if (this.state.open) {
+    const {
+      open,
+    } = this.state;
+
+    if (open) {
       const {
         onBeforeClose,
       } = this.props;
@@ -73,7 +82,11 @@ export default class Popover extends Component {
   open() {
     this.cancelOpen();
 
-    if (!this.state.open) {
+    const {
+      open,
+    } = this.state;
+
+    if (!open) {
       const {
         onBeforeOpen,
       } = this.props;
@@ -103,10 +116,18 @@ export default class Popover extends Component {
   }
 
   handleHeaderMouseEnter() {
-    if (!this.state.open) {
+    const {
+      openDelay,
+    } = this.props;
+
+    const {
+      open,
+    } = this.state;
+
+    if (!open) {
       this.openTimer = setTimeout(() => {
         this.open();
-      }, this.props.openDelay);
+      }, openDelay);
     }
   }
 

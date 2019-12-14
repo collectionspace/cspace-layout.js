@@ -29,7 +29,12 @@ const config = {
         ],
       },
       {
+        test: /react-virtualized\/.*\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.css$/,
+        exclude: /react-virtualized/,
         use: [
           {
             loader: 'style-loader',

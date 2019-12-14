@@ -7,7 +7,7 @@ import Col from '../../../src/components/Col';
 
 chai.should();
 
-describe('Col', function suite() {
+describe('Col', () => {
   beforeEach(function before() {
     this.container = createTestContainer(this);
   });
@@ -22,8 +22,8 @@ describe('Col', function suite() {
     render(
       <Col>
         <div id="content">This is some content.</div>
-      </Col>
-      , this.container);
+      </Col>, this.container,
+    );
 
     this.container.querySelector('div > div#content').textContent.should
       .equal('This is some content.');

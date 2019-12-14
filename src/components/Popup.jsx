@@ -16,7 +16,12 @@ const propTypes = {
 };
 
 const defaultProps = {
+  children: undefined,
   tabIndex: '-1',
+  onBlur: undefined,
+  onKeyDown: undefined,
+  onMouseLeave: undefined,
+  onMount: undefined,
 };
 
 export default class Popup extends Component {
@@ -75,13 +80,11 @@ export default class Popup extends Component {
       onMouseLeave,
     } = this.props;
 
-    // TODO: ARIA
-
     return (
-      /* eslint-disable jsx-a11y/no-static-element-interactions */
       <div
         className={styles.common}
         ref={this.handleRef}
+        role="presentation"
         tabIndex={tabIndex}
         onBlur={this.handleBlur}
         onKeyDown={this.handleKeyDown}
@@ -89,7 +92,6 @@ export default class Popup extends Component {
       >
         {children}
       </div>
-      /* eslint-enable jsx-a11y/no-static-element-interactions */
     );
   }
 }

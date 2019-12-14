@@ -17,9 +17,15 @@ const propTypes = {
 };
 
 const defaultProps = {
+  buttons: undefined,
+  children: undefined,
+  className: undefined,
   collapsible: false,
   collapsed: false,
   color: 'black',
+  header: undefined,
+  name: undefined,
+  onToggleCollapsed: undefined,
 };
 
 export default class Panel extends Component {
@@ -105,7 +111,10 @@ export default class Panel extends Component {
     } = this.props;
 
     const classes = classNames(
-      className, styles.common, styles[color], (collapsible && collapsed) ? styles.collapsed : ''
+      className,
+      styles.common,
+      styles[color],
+      (collapsible && collapsed) ? styles.collapsed : '',
     );
 
     return (
