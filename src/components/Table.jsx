@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import 'react-virtualized/styles.css';
 
 import {
   AutoSizer,
@@ -10,6 +9,8 @@ import {
   Table as VirtualizedTable,
 } from 'react-virtualized';
 
+// eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
+import '!style-loader!css-loader!react-virtualized/styles.css';
 import dimensions from '../../styles/dimensions.css';
 import styles from '../../styles/cspace-layout/Table.css';
 import rowStyles from '../../styles/cspace-layout/TableRow.css';
