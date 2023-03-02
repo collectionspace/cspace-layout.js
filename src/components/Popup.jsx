@@ -43,12 +43,6 @@ export default class Popup extends Component {
     }
   }
 
-  focus() {
-    if (this.domNode) {
-      this.domNode.focus();
-    }
-  }
-
   handleBlur(event) {
     const {
       onBlur,
@@ -71,6 +65,12 @@ export default class Popup extends Component {
 
   handleRef(ref) {
     this.domNode = ref;
+  }
+
+  focus() {
+    if (this.domNode) {
+      this.domNode.focus();
+    }
   }
 
   render() {
