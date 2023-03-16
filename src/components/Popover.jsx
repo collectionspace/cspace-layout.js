@@ -49,6 +49,54 @@ export default class Popover extends Component {
     };
   }
 
+  handleHeaderClick(event) {
+    event.preventDefault();
+
+    this.open();
+  }
+
+  handleHeaderKeyDown(event) {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+
+      this.open();
+    }
+  }
+
+  handleHeaderMouseEnter() {
+    const {
+      openDelay,
+    } = this.props;
+
+    const {
+      open,
+    } = this.state;
+
+    if (!open) {
+      this.openTimer = setTimeout(() => {
+        this.open();
+      }, openDelay);
+    }
+  }
+
+  handleHeaderMouseLeave() {
+    this.cancelOpen();
+  }
+
+  handlePopupBlur() {
+    this.close();
+  }
+
+  handlePopupKeyDown(event) {
+    if (event.key === 'Escape') {
+      this.close();
+    }
+  }
+
+  handlePopupMouseLeave() {
+    this.close();
+  }
+
   cancelOpen() {
     if (this.openTimer) {
       window.clearTimeout(this.openTimer);
@@ -99,54 +147,6 @@ export default class Popover extends Component {
         open: true,
       });
     }
-  }
-
-  handleHeaderClick(event) {
-    event.preventDefault();
-
-    this.open();
-  }
-
-  handleHeaderKeyDown(event) {
-    if (event.key === 'ArrowDown') {
-      event.preventDefault();
-
-      this.open();
-    }
-  }
-
-  handleHeaderMouseEnter() {
-    const {
-      openDelay,
-    } = this.props;
-
-    const {
-      open,
-    } = this.state;
-
-    if (!open) {
-      this.openTimer = setTimeout(() => {
-        this.open();
-      }, openDelay);
-    }
-  }
-
-  handleHeaderMouseLeave() {
-    this.cancelOpen();
-  }
-
-  handlePopupBlur() {
-    this.close();
-  }
-
-  handlePopupKeyDown(event) {
-    if (event.key === 'Escape') {
-      this.close();
-    }
-  }
-
-  handlePopupMouseLeave() {
-    this.close();
   }
 
   renderHeader() {
