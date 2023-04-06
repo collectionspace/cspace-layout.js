@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 import createTestContainer from '../../helpers/createTestContainer';
+import { render } from '../../helpers/renderHelpers';
 
 import Cols from '../../../src/components/Cols';
 
