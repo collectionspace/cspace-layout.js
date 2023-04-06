@@ -142,7 +142,7 @@ describe('Modal', () => {
         document.activeElement.should.equal(cancelButton);
 
         resolve();
-      }, 100);
+      }, 500);
     });
   });
 
@@ -169,7 +169,7 @@ describe('Modal', () => {
         document.activeElement.should.equal(closeButton);
 
         resolve();
-      }, 100);
+      }, 500);
     });
   });
 

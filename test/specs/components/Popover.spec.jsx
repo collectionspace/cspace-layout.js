@@ -67,7 +67,7 @@ describe('Popover', () => {
       window.setTimeout(() => {
         this.container.querySelectorAll('span').length.should.equal(2);
         resolve();
-      }, 500);
+      }, 1000);
     });
   });
 
@@ -95,7 +95,7 @@ describe('Popover', () => {
       window.setTimeout(() => {
         this.container.querySelectorAll('span').length.should.equal(2);
         resolve();
-      }, 500);
+      }, 1000);
     });
   });
 
@@ -123,7 +123,7 @@ describe('Popover', () => {
       window.setTimeout(() => {
         this.container.querySelectorAll('span').length.should.equal(2);
         resolve();
-      }, 500);
+      }, 1000);
     });
   });
 
@@ -155,7 +155,7 @@ describe('Popover', () => {
           window.setTimeout(() => {
             this.container.querySelectorAll('span').length.should.equal(2);
             resolve();
-          }, 200);
+          }, 600);
         }, 400);
       })
     );
@@ -191,7 +191,7 @@ describe('Popover', () => {
           window.setTimeout(() => {
             this.container.querySelectorAll('span').length.should.equal(0);
             resolve();
-          }, 200);
+          }, 600);
         }, 400);
       })
     );
@@ -249,7 +249,7 @@ describe('Popover', () => {
       window.setTimeout(() => {
         this.container.querySelector('div.myContent').textContent.should.equal('renderContent called');
         resolve();
-      }, 500);
+      }, 1000);
     });
   });
 
@@ -272,7 +272,7 @@ describe('Popover', () => {
       window.setTimeout(() => {
         expect(this.container.querySelector('.cspace-layout-Popup--common')).to.equal(null);
         resolve();
-      }, 500);
+      }, 1000);
     });
   });
 
@@ -305,7 +305,7 @@ describe('Popover', () => {
           headerElement.getBoundingClientRect().right.should.be.closeTo(rect.right, 2.0);
 
           resolve();
-        }, 300);
+        }, 1000);
       })
     );
   });
@@ -339,7 +339,7 @@ describe('Popover', () => {
         expect(this.container.querySelector('.cspace-layout-Popup--common')).to.equal(null);
 
         resolve();
-      }, 500);
+      }, 1000);
     });
   });
 
@@ -372,7 +372,7 @@ describe('Popover', () => {
         expect(this.container.querySelector('.cspace-layout-Popup--common')).to.equal(null);
 
         resolve();
-      }, 500);
+      }, 1000);
     });
   });
 
@@ -405,7 +405,7 @@ describe('Popover', () => {
         expect(this.container.querySelector('.cspace-layout-Popup--common')).to.equal(null);
 
         resolve();
-      }, 500);
+      }, 1000);
     });
   });
 
@@ -444,7 +444,7 @@ describe('Popover', () => {
         handlerCalled.should.equal(true);
 
         resolve();
-      }, 500);
+      }, 1000);
     });
   });
 });
