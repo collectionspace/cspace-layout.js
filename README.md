@@ -2,7 +2,7 @@
 
 [![npm package](https://img.shields.io/npm/v/cspace-layout.svg)](https://www.npmjs.com/package/cspace-layout)
 [![continuous integration](https://github.com/collectionspace/cspace-layout.js/actions/workflows/ci-js.yml/badge.svg?branch=master&event=push)](https://github.com/collectionspace/cspace-layout.js/actions/workflows/ci-js.yml)
-[![codecov](https://codecov.io/gh/collectionspace/cspace-layout.js/branch/master/graph/badge.svg?token=WE7UM98W0I)](https://codecov.io/gh/collectionspace/cspace-layout.js)
+[![codecov](https://codecov.io/gh/collectionspace/cspace-layout.js/branch/master/graph/badge.svg?token=WE7UM98W0I)](https://app.codecov.io/gh/collectionspace/cspace-layout.js)
 
 Layout components for CollectionSpace, built with [React](https://facebook.github.io/react/). All of the components in this library are [presentational](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
 
