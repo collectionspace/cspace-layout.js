@@ -154,9 +154,14 @@ export default class Popover extends Component {
       header,
     } = this.props;
 
+    const {
+      open,
+    } = this.state;
+
     return (
       <button
         type="button"
+        aria-expanded={open}
         onClick={this.handleHeaderClick}
         onKeyDown={this.handleHeaderKeyDown}
         onMouseEnter={this.handleHeaderMouseEnter}
