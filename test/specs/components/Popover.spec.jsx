@@ -41,6 +41,7 @@ describe('Popover', () => {
     );
 
     this.container.querySelector('button').textContent.should.equal('Header');
+    this.container.querySelector('button').ariaExpanded.should.equal('false');
   });
 
   it('should open when mouse enters the header', function test() {
@@ -66,6 +67,7 @@ describe('Popover', () => {
     return new Promise((resolve) => {
       window.setTimeout(() => {
         this.container.querySelectorAll('span').length.should.equal(2);
+        this.container.querySelector('button').ariaExpanded.should.equal('true');
         resolve();
       }, 1000);
     });
