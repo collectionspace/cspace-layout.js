@@ -6,22 +6,22 @@
   border-radius: 3px;
   padding: 6px 10px;
   color: rgb(255, 255, 255);
-  background-color: #73AA4F;
+  background-color: #003366;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
 
 .common:disabled {
-  background-color: rgb(220, 220, 220);
+  background-color: #4D4D4D;
 }
 
 .common:hover:not(:disabled) {
-  background-color: #4A7F28;
+  background-color: #305A8D;
 }
 
 .common:focus {
-  box-shadow: 0 0 0 2px #4A7F28;
+  box-shadow: 0 0 0 2px #305A8D;
 }
 
 .common::-moz-focus-inner {
