@@ -1,3 +1,7 @@
+.common {
+  cursor: default;
+}
+
 .common:hover {
   background: #ACC9EB;
 }
