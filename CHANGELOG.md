@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.6
+
+Set the default cursor for table rows
+
 ## 2.0.5
 
 Update modal button colors for wcag requirements
