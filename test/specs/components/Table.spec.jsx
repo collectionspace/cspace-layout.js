@@ -6,6 +6,8 @@ import { render } from '../../helpers/renderHelpers';
 
 import Table from '../../../src/components/Table';
 
+const { expect } = chai;
+
 chai.should();
 
 describe('Table', () => {
@@ -143,5 +145,54 @@ describe('Table', () => {
     }
 
     renderCalledCount.should.equal(3);
+  });
+
+  it('should not render title attributes on cells or headers', function test() {
+    render(
+      <div style={{ height: '140px' }}>
+        <Table
+          columns={columns}
+          rowCount={data.length}
+          rowGetter={({ index }) => data[index]}
+        />
+      </div>, this.container,
+    );
+
+    const cells = this.container.querySelectorAll('[role="gridcell"]');
+
+    cells.length.should.be.above(0);
+
+    cells.forEach((cell) => {
+      expect(cell.getAttribute('title')).to.equal(null);
+    });
+
+    const headers = this.container.querySelectorAll('span.ReactVirtualized__Table__headerTruncatedText');
+
+    headers.length.should.equal(columns.length);
+
+    headers.forEach((header) => {
+      expect(header.getAttribute('title')).to.equal(null);
+    });
+  });
+
+  it('should render a sort indicator on the sorted column header', function test() {
+    render(
+      <div style={{ height: '140px' }}>
+        <Table
+          columns={columns}
+          rowCount={data.length}
+          rowGetter={({ index }) => data[index]}
+          sort={() => {}}
+          sortBy="title"
+          sortDirection={Table.SortDirection.DESC}
+        />
+      </div>, this.container,
+    );
+
+    const headers = this.container.querySelectorAll('div.ReactVirtualized__Table__headerColumn');
+
+    expect(headers[0].querySelector('svg.ReactVirtualized__Table__sortableHeaderIcon')).to.equal(null);
+    expect(headers[1].querySelector('svg.ReactVirtualized__Table__sortableHeaderIcon--DESC')).to.not.equal(null);
+    expect(headers[2].querySelector('svg.ReactVirtualized__Table__sortableHeaderIcon')).to.equal(null);
   });
 });
