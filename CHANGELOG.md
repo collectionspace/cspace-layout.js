@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.7
+
+Remove redundant title attributes from Table cells and column headers that duplicate the visible text.
+
 ## 2.0.6
 
 Set the default cursor for table rows

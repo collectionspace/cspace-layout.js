@@ -6,6 +6,7 @@ import {
   Column,
   defaultTableRowRenderer,
   SortDirection,
+  SortIndicator,
   Table as VirtualizedTable,
 } from 'react-virtualized';
 
@@ -41,7 +42,27 @@ const rowClassName = ({ index }) => {
   return null;
 };
 
-const cellRenderer = ({ cellData }) => cellData;
+// wrap cellData in a fragment so that redundant title is not being added
+const cellRenderer = ({ cellData }) => <>{cellData}</>;
+
+// fork react-virtualized's default header renderer, minus the title
+// https://github.com/bvaughn/react-virtualized/blob/master/source/Table/defaultHeaderRenderer.js
+const headerRenderer = ({
+  dataKey,
+  label,
+  sortBy,
+  sortDirection,
+}) => {
+  const children = [
+    <span className="ReactVirtualized__Table__headerTruncatedText" key="label">{label}</span>,
+  ];
+
+  if (sortBy === dataKey) {
+    children.push(<SortIndicator key="SortIndicator" sortDirection={sortDirection} />);
+  }
+
+  return children;
+};
 
 export default class Table extends Component {
   constructor(props) {
@@ -106,6 +127,7 @@ export default class Table extends Component {
               <Column
                 key={column.dataKey}
                 cellRenderer={cellRenderer}
+                headerRenderer={headerRenderer}
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...column}
               />
