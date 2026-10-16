@@ -1,6 +1,6 @@
 # Change Log
 
-## 2.0.7
+## 2.1.0
 
 Remove redundant title attributes from Table cells and column headers that duplicate the visible text.
 
