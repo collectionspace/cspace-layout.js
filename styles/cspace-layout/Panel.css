@@ -53,6 +53,7 @@
   outline-offset: 0;
 }
 
+.common > header h2,
 .common > header h3 {
   margin: 0;
 
