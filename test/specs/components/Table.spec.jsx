@@ -175,6 +175,33 @@ describe('Table', () => {
     });
   });
 
+  it('should render rows directly within the rowgroup', function test() {
+    render(
+      <div style={{ height: '140px' }}>
+        <Table
+          columns={columns}
+          rowCount={data.length}
+          rowGetter={({ index }) => data[index]}
+        />
+      </div>, this.container,
+    );
+
+    const rowGroup = this.container.querySelector('[role="rowgroup"]');
+
+    rowGroup.should.not.equal(null);
+
+    this.container.querySelector('.ReactVirtualized__Grid__innerScrollContainer')
+      .getAttribute('role').should.equal('presentation');
+
+    const rows = rowGroup.querySelectorAll('[role="row"]');
+
+    rows.length.should.equal(data.length);
+
+    rows.forEach((row) => {
+      row.parentElement.closest('[role]:not([role="presentation"])').should.equal(rowGroup);
+    });
+  });
+
   it('should render a sort indicator on the sorted column header', function test() {
     render(
       <div style={{ height: '140px' }}>

@@ -2,7 +2,8 @@
 
 ## 2.0.7
 
-Remove redundant title attributes from Table cells and column headers that duplicate the visible text.
+- Remove redundant title attributes from Table cells and column headers that duplicate the visible text. 
+- Render Table rows directly within the rowgroup, so grids pass ARIA required children and required parent checks.
 
 ## 2.0.6
 

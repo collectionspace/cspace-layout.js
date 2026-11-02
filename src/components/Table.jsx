@@ -119,6 +119,7 @@ export default class Table extends Component {
             headerHeight={inputHeight}
             rowHeight={inputHeight}
             rowClassName={rowClassName}
+            containerRole="presentation"
             tabIndex={-1}
             onRowClick={this.handleRowClick}
           >
