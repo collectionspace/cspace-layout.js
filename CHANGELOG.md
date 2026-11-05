@@ -4,6 +4,7 @@
 
 - Remove redundant title attributes from Table cells and column headers that duplicate the visible text. 
 - Render Table rows directly within the rowgroup, so grids pass ARIA required children and required parent checks.
+- Increase inputHeight so that all input components meet a minimum of 24x24 px (Criteria 2.3.8).
 
 ## 2.0.6
 
